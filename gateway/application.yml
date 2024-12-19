@@ -1,0 +1,16 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: student_service
+          uri: lb://student
+          predicates:
+            - Path=/student/**
+        - id: school_service
+          uri: lb://school
+          predicates:
+            - Path=/school/**
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
